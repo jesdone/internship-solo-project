@@ -75,7 +75,10 @@ function App() {
           onChange={(e) => setTask(e.target.value)}
           value={task}
         />
-        <button type="submit">Add Task</button>
+        {/* <button type="submit">Add Task</button> */}
+        <button type="button" className="btn btn-primary">
+          Add Task
+        </button>
       </form>
 
       {tasks.map((task) => (
@@ -89,8 +92,14 @@ function App() {
           ) : (
             <div>{task.text}</div>
           )}
-
-          <button onClick={() => deleteTask(task.id)}>Delete Task</button>
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={() => deleteTask(task.id)}
+          >
+            Delete Task
+          </button>
+          {/* <button onClick={() => deleteTask(task.id)}>Delete Task</button> */}
           <input
             type="checkbox"
             onChange={() => toggleComplete(task.id)}
@@ -98,9 +107,22 @@ function App() {
           />
 
           {taskEditing === task.id ? (
-            <button onClick={() => editTask(task.id)}>Submit Edits</button>
+            <button
+              type="button"
+              className="btn btn-warning"
+              onClick={() => editTask(task.id)}
+            >
+              Submit Edits
+            </button>
           ) : (
-            <button onClick={() => setTaskEditing(task.id)}>Edit Task</button>
+            <button
+              type="button"
+              className="btn btn-warning"
+              onClick={() => setTaskEditing(task.id)}
+            >
+              Edit Task
+            </button>
+            // <button onClick={() => setTaskEditing(task.id)}>Edit Task</button>
           )}
         </div>
       ))}
@@ -132,7 +154,7 @@ export default App;
 //     localStorage.setItem("tasks", temp);
 //   }, [tasks]);
 
-//   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+//   function handleSubmit(e) {
 //     e.preventDefault();
 
 //     const newTask = {
