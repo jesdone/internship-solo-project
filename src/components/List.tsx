@@ -3,6 +3,7 @@ import "./style.css";
 
 export const Frame = (): JSX.Element => {
   return (
+    
     <Fragment>
       <div className="frame">
         <div className="text-wrapper">Add New Task</div>
